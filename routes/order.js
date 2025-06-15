@@ -1,0 +1,9 @@
+import express from "express";
+import { placeOrder } from "../controller/orderController.js";
+import authenticate from "../middleware/authenticate.js"; // token middleware
+
+const router = express.Router();
+
+router.post("/orders", authenticate, placeOrder);
+
+export default router;

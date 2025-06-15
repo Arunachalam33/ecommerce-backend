@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import authRoute from "./routes/auth.js";
 import productRoute from "./routes/productauth.js";
+import orderRoutes from "./routes/order.js";
 
 
 dotenv.config();
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use("/api",authRoute);
 app.use("/api/product",productRoute);
+app.use("/api", orderRoutes);
 
 app.get("/",(req,res)=>{
     res.send("Backend is Working");
