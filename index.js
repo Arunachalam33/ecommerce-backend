@@ -5,6 +5,7 @@ import authRoute from "./routes/auth.js";
 import productRoute from "./routes/productauth.js";
 import orderRoutes from "./routes/order.js";
 import adminRoutes from "./routes/adminRoutes.js";
+import pool from "./db/db.js";
 
 
 dotenv.config();
@@ -23,6 +24,8 @@ app.get("/",(req,res)=>{
     res.send("Backend is Working");
 })
 
+
 app.listen(port,()=>{
     console.log(`Server Running on Port ${port}`);
 });
+
