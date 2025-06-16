@@ -47,7 +47,7 @@ export async function loginUser(req,res){
        if(!isMatch){
          res.status(401).json({message:"Incorrect Username or Password"});
        }
-           const token= jwt.sign({id:user.id,username:user.username},process.env.JWT_SECRET,{expiresIn:"1h"})
+           const token= jwt.sign({id:user.id,username:user.username,is_admin: user.is_admin},process.env.JWT_SECRET,{expiresIn:"1h"})
            
 
             res.json({token});
