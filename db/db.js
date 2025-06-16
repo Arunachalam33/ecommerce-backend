@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const {Pool}=pkg;
+const { Pool } = pkg;
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -12,4 +12,16 @@ const pool = new Pool({
   },
 });
 
+try {
+  const result = await pool.query("SELECT NOW()");
+  console.log("Connected successfully:", result.rows);
+} catch (err) {
+  console.error("Connection failed:", err);
+}
+
 export default pool;
+
+
+
+
+
